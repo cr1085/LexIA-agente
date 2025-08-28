@@ -3,10 +3,24 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 import PyPDF2
+import pypdf
 import requests
 import json
 import logging
 from typing import Optional
+
+
+# CON ESTO:
+try:
+    # Primero intenta con la nueva (para Koyeb)
+    import pypdf
+    PdfReader = pypdf.PdfReader
+    print("✅ Usando pypdf (nueva versión)")
+except ImportError:
+    # Si falla, usa la original (para local)
+    import PyPDF2
+    PdfReader = PyPDF2.PdfReader
+    print("✅ Usando PyPDF2 (versión legacy)")
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -118,7 +132,8 @@ def extract_text_from_pdf(pdf_path: str) -> Optional[str]:
     text = ""
     try:
         with open(pdf_path, "rb") as file:
-            reader = PyPDF2.PdfReader(file)
+            # reader = PyPDF2.PdfReader(file)
+            reader = PdfReader(file)
             for page in reader.pages:
                 text += page.extract_text() + "\n"
         return text
