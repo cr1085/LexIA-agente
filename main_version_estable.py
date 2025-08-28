@@ -143,57 +143,6 @@ async def on_ready():
     else:
         print("❌ Error cargando el syllabus")
 
-
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-    
-    # Si el mensaje NO empieza con !, verificar si es un comando natural
-    if not message.content.startswith('!'):
-        msg = message.content.lower()
-        
-        if msg.startswith(('preguntar ', 'consulta ', 'duda ')):
-            pregunta = message.content.split(' ', 1)[1]
-            ctx = await bot.get_context(message)
-            await ctx.invoke(bot.get_command('preguntar'), pregunta=pregunta)
-            return
-        
-        elif msg.startswith(('asistente ', 'ia ', 'chat ', 'ai ')):
-            mensaje = message.content.split(' ', 1)[1]
-            ctx = await bot.get_context(message)
-            await ctx.invoke(bot.get_command('asistente'), mensaje=mensaje)
-            return
-        
-        elif msg in ['hola', 'saludos', 'hi', 'hello']:
-            ctx = await bot.get_context(message)
-            await ctx.invoke(bot.get_command('hola'))
-            return
-        
-        elif msg in ['syllabus', 'temario', 'contenido']:
-            ctx = await bot.get_context(message)
-            await ctx.invoke(bot.get_command('syllabus'))
-            return
-        
-        elif msg in ['módulos', 'modulos', 'unidades', 'temas']:
-            ctx = await bot.get_context(message)
-            await ctx.invoke(bot.get_command('modulos'))
-            return
-        
-        elif msg == 'ping':
-            ctx = await bot.get_context(message)
-            await ctx.invoke(bot.get_command('ping'))
-            return
-        
-        elif msg in ['ayuda', 'help', 'comandos']:
-            ctx = await bot.get_context(message)
-            await ctx.invoke(bot.get_command('ayuda'))
-            return
-    
-    # Procesar comandos normales con !
-    await bot.process_commands(message)
-
-
 @bot.command()
 async def preguntar(ctx, *, pregunta):
     """Responde preguntas sobre el syllabus de ciberseguridad"""
@@ -275,16 +224,16 @@ async def ayuda(ctx):
     """Muestra todos los comandos disponibles"""
     embed = discord.Embed(
         title="🤖 Comandos Disponibles",
-        description="**Prefix: `!`** o **Sin prefix:`!`**",
+        description="**Prefix: `!`**",
         color=0xff9900
     )
-    embed.add_field(name="`!hola` o `hola`", value="Saludo del bot", inline=False)
-    embed.add_field(name="`!preguntar [pregunta]` o `preguntar [pregunta]`", value="Busca en el syllabus", inline=False)
-    embed.add_field(name="`!asistente [pregunta]` o `asistente [pregunta]`", value="Pregunta anything al IA", inline=False)
-    embed.add_field(name="`!syllabus` o `syllabus`", value="Info del curso", inline=False)
-    embed.add_field(name="`!modulos` o `modulos`", value="Módulos del curso", inline=False)
-    embed.add_field(name="`!ping` o `ping`", value="Verifica latencia", inline=False)
-    embed.add_field(name="`!ayuda` o `ayuda`", value="Muestra esta ayuda", inline=False)
+    embed.add_field(name="`!hola`", value="Saludo del bot", inline=False)
+    embed.add_field(name="`!preguntar [pregunta]`", value="Busca en el syllabus", inline=False)
+    embed.add_field(name="`!asistente [pregunta]`", value="Pregunta anything al IA", inline=False)
+    embed.add_field(name="`!syllabus`", value="Info del curso", inline=False)
+    embed.add_field(name="`!modulos`", value="Módulos del curso", inline=False)
+    embed.add_field(name="`!ping`", value="Verifica latencia", inline=False)
+    embed.add_field(name="`!ayuda`", value="Muestra esta ayuda", inline=False)
     
     await ctx.send(embed=embed)
 
