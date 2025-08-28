@@ -1,0 +1,8 @@
+v: 0
+micros:
+  - name: bot
+    src: .
+    runtimes:
+      - python3.9
+    commands:
+      - python main.py
