@@ -1,22 +1,7 @@
-# discord.py==2.3.2
-# transformers==4.35.2
-# torch==2.1.0
-# python-dotenv==1.0.0
-# PyPDF2==3.0.1
-# # o pdfplumber==0.10.2
-
-# discord.py==2.3.2
-# transformers==4.35.2
-# torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
-# python-dotenv==1.0.0
-# PyPDF2==3.0.1
-
-
 discord.py==2.3.2
 PyPDF2==3.0.1
-pypdf==3.17.0    
+pypdf==3.17.0
 python-dotenv==1.0.0
 requests==2.31.0
 transformers==4.35.2
-torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
-
+tensorflow==2.15.0
