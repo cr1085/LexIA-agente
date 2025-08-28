@@ -4,4 +4,4 @@ pypdf==3.17.0
 python-dotenv==1.0.0
 requests==2.31.0
 transformers==4.35.2
-tensorflow==2.15.0
+tensorflow==2.20.0
