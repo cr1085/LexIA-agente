@@ -5,10 +5,23 @@
 # transformers==4.35.2
 # tensorflow==2.20.0
 
+# discord.py==2.3.2
+# PyPDF2==3.0.1
+# pypdf==3.17.0    
+# python-dotenv==1.0.0
+# requests==2.31.0
+# transformers==4.35.2
+# torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
+
+
 discord.py==2.3.2
 PyPDF2==3.0.1
-pypdf==3.17.0    
+pypdf==3.17.0
 python-dotenv==1.0.0
-requests==2.31.0
+requests==2.32.2  # Actualizado para compatibilidad
 transformers==4.35.2
 torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
+matplotlib==3.7.5
+pandas==2.0.3
+numpy==1.24.4
+datasets==4.0.0  # Añadido explícitamente
